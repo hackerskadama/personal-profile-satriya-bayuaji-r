@@ -1,0 +1,74 @@
+<section class="py-5 min-vh-100 d-flex flex-column justify-content-between">
+    <div class="container py-5">
+        <div id="hobi-main-view" class="hobi-view-section">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge badge-space px-3 py-2 rounded-pill mb-2" data-translate="hobi_badge">Aktivitas &amp; Minat</span>
+                <h2 class="fw-bold text-light" data-translate="hobi_title">Hobi Saya</h2>
+                <p class="text-secondary mx-auto" style="max-width: 600px;" data-translate="hobi_subtitle">Beberapa hal yang saya sukai dan menjadi bagian dari aktivitas serta dokumentasi pribadi saya.</p>
+            </div>
+            <div class="row g-4 justify-content-center mb-5">
+                <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card folder-card h-100 rounded-4 overflow-hidden p-3 d-flex flex-column cursor-pointer" onclick="openHobiFolder('fotografi')">
+                        <div class="folder-thumb rounded-3 overflow-hidden position-relative mb-3" style="height: 200px;">
+                            <img src="" data-hobi-image="images/foto1-3.jpg" alt="Fotografi" data-translate-attr="alt:hobi_fotografi_title" class="w-100 h-100 object-fit-cover transition-scale">
+                            <div class="folder-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"><span class="badge bg-dark bg-opacity-75 text-light px-3 py-2 rounded-pill border border-secondary border-opacity-25"><i class="bi bi-folder2-open text-accent me-1"></i> <span data-translate="hobi_open_folder">Buka Folder</span></span></div>
+                        </div>
+                        <div class="flex-grow-1 d-flex flex-column">
+                            <h4 class="fw-bold text-light mb-2"><i class="bi bi-camera-fill text-accent me-2"></i><span data-translate="hobi_fotografi_title">Fotografi</span></h4>
+                            <p class="text-secondary small mb-3 flex-grow-1" data-translate="hobi_fotografi_desc">Dokumentasi berbagai momen, objek, dan pemandangan yang saya abadikan melalui fotografi.</p>
+                            <div class="d-flex align-items-center text-accent small fw-semibold"><span data-translate="hobi_photo_count">5 Dokumentasi Foto</span><i class="bi bi-arrow-right ms-auto"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card folder-card h-100 rounded-4 overflow-hidden p-3 d-flex flex-column cursor-pointer" onclick="openHobiFolder('alam')">
+                        <div class="folder-thumb rounded-3 overflow-hidden position-relative mb-3" style="height: 200px;">
+                            <img src="" data-hobi-image="ekpolarasi alam/foto 3.jpeg" alt="Eksplorasi Alam" data-translate-attr="alt:hobi_alam_title" class="w-100 h-100 object-fit-cover transition-scale">
+                            <div class="folder-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"><span class="badge bg-dark bg-opacity-75 text-light px-3 py-2 rounded-pill border border-secondary border-opacity-25"><i class="bi bi-folder2-open text-accent me-1"></i> <span data-translate="hobi_open_folder">Buka Folder</span></span></div>
+                        </div>
+                        <div class="flex-grow-1 d-flex flex-column">
+                            <h4 class="fw-bold text-light mb-2"><i class="bi bi-trees-fill text-accent me-2"></i><span data-translate="hobi_alam_title">Eksplorasi Alam</span></h4>
+                            <p class="text-secondary small mb-3 flex-grow-1" data-translate="hobi_alam_desc">Dokumentasi perjalanan menikmati suasana alam, pemandangan, dan tempat-tempat menarik.</p>
+                            <div class="d-flex align-items-center text-accent small fw-semibold"><span data-translate="hobi_photo_count">5 Dokumentasi Foto</span><i class="bi bi-arrow-right ms-auto"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card folder-card h-100 rounded-4 overflow-hidden p-3 d-flex flex-column cursor-pointer" onclick="openHobiFolder('pesonaAlam')">
+                        <div class="folder-thumb rounded-3 overflow-hidden position-relative mb-3" style="height: 200px;">
+                            <img src="" data-hobi-image="pesona alam/foto 1.5.jpeg" alt="Pesona Alam" data-translate-attr="alt:hobi_pesona_title" class="w-100 h-100 object-fit-cover transition-scale">
+                            <div class="folder-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"><span class="badge bg-dark bg-opacity-75 text-light px-3 py-2 rounded-pill border border-secondary border-opacity-25"><i class="bi bi-folder2-open text-accent me-1"></i> <span data-translate="hobi_open_folder">Buka Folder</span></span></div>
+                        </div>
+                        <div class="flex-grow-1 d-flex flex-column">
+                            <h4 class="fw-bold text-light mb-2"><i class="bi bi-compass-fill text-accent me-2"></i><span data-translate="hobi_pesona_title">Pesona Alam</span></h4>
+                            <p class="text-secondary small mb-3 flex-grow-1" data-translate="hobi_pesona_desc">Kumpulan foto pemandangan alam yang saya abadikan, mulai dari pegunungan, awan, pantai, hingga berbagai keindahan alam lainnya.</p>
+                            <div class="d-flex align-items-center text-accent small fw-semibold"><span data-translate="hobi_photo_count">5 Dokumentasi Foto</span><i class="bi bi-arrow-right ms-auto"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 pt-4" data-aos="fade-up">
+                <div class="glass-card rounded-4 p-4 p-md-5 position-relative overflow-hidden text-center border-accent-glow">
+                    <div class="position-absolute top-0 end-0 translate-middle-y opacity-10 pe-3 pt-3 d-none d-md-block"><i class="bi bi-instagram text-accent" style="font-size: 8rem;"></i></div>
+                    <div class="position-relative z-1" style="max-width: 650px; margin: 0 auto;">
+                        <div class="mb-3"><span class="badge bg-danger bg-opacity-25 text-danger px-3 py-1 rounded-pill"><i class="bi bi-instagram me-1"></i> <span data-translate="hobi_social_gallery">Galeri Sosial</span></span></div>
+                        <h3 class="fw-bold text-light mb-3" data-translate="hobi_complete">Dokumentasi Hobi Lengkap</h3>
+                        <p class="text-secondary mb-4" data-translate="hobi_social_desc">Untuk melihat dokumentasi hobi saya secara lebih lengkap, kunjungi akun Instagram khusus dokumentasi hobi saya.</p>
+                        <a href="https://instagram.com/premierrzz.archive" target="_blank" rel="noopener noreferrer" class="btn btn-space-primary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2"><i class="bi bi-instagram fs-5"></i><span data-translate="hobi_instagram_button">Instagram — Lihat Dokumentasi Lengkap</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hobi-detail-view" class="hobi-view-section d-none">
+            <div class="mb-4" data-aos="fade-right">
+                <button type="button" class="btn btn-outline-danger btn-sm rounded-pill px-3 d-inline-flex align-items-center gap-2 text-danger border-danger" onclick="closeHobiFolder()"><i class="bi bi-arrow-left"></i><span data-translate="hobi_back">Kembali ke Hobi</span></button>
+            </div>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge badge-space px-3 py-2 rounded-pill mb-2" data-translate="hobi_folder">Folder Dokumentasi</span>
+                <h2 id="detail-folder-title" class="fw-bold text-light" data-translate="hobi_default_title">Judul Folder</h2>
+                <p id="detail-folder-desc" class="text-secondary mx-auto" style="max-width: 600px;" data-translate="hobi_default_desc">Keterangan folder dokumentasi.</p>
+            </div>
+            <div id="detail-photos-container" class="row g-4 justify-content-center"></div>
+        </div>
+    </div>
+</section>

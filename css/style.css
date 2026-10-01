@@ -1,0 +1,1033 @@
+/* ==========================================================
+   CSS VARIABLES & THEMES
+   ========================================================== */
+:root {
+    --space-bg: #050816;
+    --space-bg-secondary: #0b1026;
+    --space-card: rgba(255, 255, 255, 0.08);
+    --space-card-hover: rgba(255, 255, 255, 0.12);
+    --space-text: #ffffff;
+    --space-text-secondary: #b8c1d9;
+    --space-accent: #7c8cff;
+    --space-accent-secondary: #a855f7;
+    --space-border: rgba(255, 255, 255, 0.15);
+    --nav-bg: rgba(5, 8, 22, 0.85);
+}
+
+[data-theme="light"] {
+    --space-bg: #f0f4f8;
+    --space-bg-secondary: #d9e2ec;
+    --space-card: rgba(20, 30, 60, 0.06);
+    --space-card-hover: rgba(20, 30, 60, 0.1);
+    --space-text: #102a43;
+    --space-text-secondary: #486581;
+    --space-accent: #3b82f6;
+    --space-accent-secondary: #8b5cf6;
+    --space-border: rgba(20, 30, 60, 0.15);
+    --nav-bg: rgba(240, 244, 248, 0.9);
+}
+
+/* ==========================================================
+   GENERAL STYLES & BODY
+   ========================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--space-bg);
+    color: var(--space-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    margin: 0;
+    padding-top: 85px !important;
+}
+
+main {
+    flex: 1;
+}
+
+#main-content {
+    min-height: 60vh;
+    padding-bottom: 2rem;
+}
+
+.hobi-view-section {
+    min-height: 60vh;
+    padding-bottom: 2rem;
+}
+
+#space-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* ==========================================================
+   NEBULA & PLANET DECORATIONS
+   ========================================================== */
+.nebula-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at 20% 30%, rgba(124, 140, 255, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 45%);
+    filter: blur(60px);
+    animation: nebulaMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaMove {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -15px) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* ==========================================================
+   PRELOADER
+   ========================================================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--space-bg);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.orbit-system {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 0 auto;
+    border: 2px dashed rgba(124, 140, 255, 0.3);
+    border-radius: 50%;
+    animation: spinOrbit 3s linear infinite;
+}
+
+.central-star {
+    width: 20px;
+    height: 20px;
+    background: var(--space-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    box-shadow: 0 0 15px var(--space-accent);
+}
+
+.orbiting-planet {
+    width: 12px;
+    height: 12px;
+    background: var(--space-accent-secondary);
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    left: 34px;
+    box-shadow: 0 0 10px var(--space-accent-secondary);
+}
+
+@keyframes spinOrbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================
+   NAVBAR & GLASSMORPHISM (FIXED & INTERACTIVE)
+   ========================================================== */
+.space-navbar,
+.navbar {
+    background-color: var(--nav-bg) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--space-border);
+    transition: background-color 0.3s ease;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 99999 !important;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid var(--space-accent);
+    box-shadow: 0 0 10px rgba(124, 140, 255, 0.4);
+}
+
+.brand-text {
+    color: var(--space-text);
+    letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--space-text-secondary) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--space-accent) !important;
+}
+
+.navbar-toggler {
+    z-index: 100000 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    background: rgba(124, 140, 255, 0.1);
+}
+
+.navbar-collapse {
+    z-index: 99998 !important;
+}
+
+@media (max-width: 991.98px) {
+    .space-navbar .container,
+    .navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .navbar-collapse {
+        background-color: var(--space-bg-secondary);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        border: 1px solid var(--space-border);
+        margin-top: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ==========================================================
+   ANIMASI NAMA & GLOW
+   ========================================================== */
+.name-animation-wrapper {
+    min-height: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-name-title {
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    line-height: 1.2;
+    font-size: clamp(1.3rem, 2.6vw, 2.4rem);
+}
+
+.animated-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transition: opacity 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
+    color: var(--space-text);
+}
+
+.animated-letter.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    color: var(--space-text);
+    text-shadow: 0 0 10px rgba(124, 140, 255, 0.9), 
+                 0 0 20px rgba(147, 51, 234, 0.7);
+}
+
+[data-theme="light"] .animated-letter.visible {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 
+                 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+/* ==========================================================
+   GLASSMORPHISM CARDS & PROFILE
+   ========================================================== */
+.glass-card {
+    background: var(--space-card);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--space-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    background: var(--space-card-hover);
+    border-color: var(--space-accent);
+    box-shadow: 0 12px 40px 0 rgba(124, 140, 255, 0.2);
+}
+
+.badge-space {
+    background: rgba(124, 140, 255, 0.15);
+    border: 1px solid var(--space-border);
+    color: var(--space-accent);
+}
+
+.profile-container {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4px solid var(--space-accent);
+    border-radius: 50%;
+}
+
+.profile-ring {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 2px dashed var(--space-accent-secondary);
+    border-radius: 50%;
+    animation: spinOrbit 12s linear infinite;
+}
+
+.profile-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--space-accent);
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* ==========================================================
+   TIMELINE SPACE STYLING (Halaman Perjalanan Saya)
+   ========================================================== */
+.journey-page {
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.journey-shell {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.journey-header {
+    margin-bottom: 3.2rem;
+}
+
+.journey-header h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.journey-header p {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: clamp(0.92rem, 1.5vw, 1.08rem);
+    line-height: 1.7;
+}
+
+.journey-timeline {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+.journey-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(124, 140, 255, 0.7), rgba(168, 85, 247, 0.4));
+    transform: translateX(-50%);
+    opacity: 0.9;
+}
+
+.journey-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 82px minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.journey-item:last-child {
+    margin-bottom: 0;
+}
+
+.journey-content {
+    width: min(100%, 480px);
+    box-sizing: border-box;
+}
+
+.journey-item.left .journey-content {
+    grid-column: 1;
+    justify-self: end;
+}
+
+.journey-item.right .journey-content {
+    grid-column: 3;
+    justify-self: start;
+}
+
+.journey-empty {
+    grid-column: 1;
+    min-height: 1px;
+}
+
+.journey-item.right .journey-empty {
+    grid-column: 1;
+}
+
+.journey-rail {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.journey-dot {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(11, 16, 38, 0.9);
+    border: 2px solid var(--space-accent);
+    box-shadow: 0 0 18px rgba(124, 140, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--space-accent);
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 2;
+}
+
+.journey-card {
+    background: var(--space-card);
+    border: 1px solid var(--space-border);
+    box-shadow: 0 16px 35px rgba(6, 10, 28, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 1.2rem;
+    padding: 1.2rem 1.25rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124, 140, 255, 0.5);
+    box-shadow: 0 18px 36px rgba(124, 140, 255, 0.12);
+}
+
+.journey-year {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--space-accent);
+    background: rgba(124, 140, 255, 0.08);
+    border: 1px solid rgba(124, 140, 255, 0.2);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+}
+
+.journey-card h3 {
+    margin: 0 0 0.75rem;
+    color: var(--space-text);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.journey-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.85rem;
+}
+
+.journey-badge,
+.journey-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    font-size: 0.72rem;
+    border-radius: 999px;
+    padding: 0.42rem 0.7rem;
+    line-height: 1.2;
+}
+
+.journey-badge {
+    background: rgba(124, 140, 255, 0.14);
+    border: 1px solid rgba(124, 140, 255, 0.22);
+    color: var(--space-accent);
+}
+
+.journey-chip {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: var(--space-text);
+}
+
+.journey-card strong {
+    color: var(--space-text);
+}
+
+.journey-card p {
+    margin: 0;
+    color: var(--space-text-secondary);
+    font-size: clamp(0.85rem, 1.3vw, 0.98rem);
+    line-height: 1.7;
+}
+
+@media (max-width: 991.98px) {
+    .journey-shell {
+        width: 92%;
+    }
+
+    .journey-item {
+        grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr);
+    }
+
+    .journey-content {
+        width: min(100%, 420px);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .journey-page {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .journey-shell {
+        width: 92%;
+    }
+
+    .journey-timeline {
+        max-width: 100%;
+    }
+
+    .journey-timeline::before {
+        left: 22px;
+        transform: none;
+    }
+
+    .journey-item {
+        display: block;
+        position: relative;
+        padding-left: 3.2rem;
+        margin-bottom: 1.6rem;
+    }
+
+    .journey-item::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 0;
+        bottom: -1.1rem;
+        width: 2px;
+        background: rgba(124, 140, 255, 0.18);
+    }
+
+    .journey-content,
+    .journey-item.left .journey-content,
+    .journey-item.right .journey-content {
+        width: 100%;
+        justify-self: stretch;
+        grid-column: auto;
+        display: block;
+    }
+
+    .journey-rail,
+    .journey-empty {
+        display: none;
+    }
+
+    .journey-dot {
+        position: absolute;
+        left: 8px;
+        top: 0.9rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .journey-card {
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
+    .journey-card h3 {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    .journey-card p {
+        line-height: 1.65;
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-header {
+        margin-bottom: 2.4rem;
+    }
+
+    .journey-shell {
+        width: 94%;
+    }
+
+    .journey-card {
+        padding: 0.9rem 0.95rem;
+    }
+
+    .journey-year {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.7rem;
+    }
+}
+
+/* ==========================================================
+   BUTTONS & MISC
+   ========================================================== */
+.btn-space-primary {
+    background: linear-gradient(135deg, var(--space-accent), var(--space-accent-secondary));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-space-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--space-accent);
+    color: #fff;
+}
+
+.btn-space-outline {
+    background: transparent;
+    border: 1px solid var(--space-border);
+    color: var(--space-text);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-space-outline:hover {
+    background: var(--space-card-hover);
+    border-color: var(--space-accent);
+    color: var(--space-accent);
+    transform: translateY(-2px);
+}
+
+.biodata-icon-box {
+    width: 90px;
+    height: 90px;
+    background: rgba(124, 140, 255, 0.1);
+    border: 1px solid var(--space-border);
+}
+
+/* Tombol Kontak Khusus */
+.contact-btn-wa { background: linear-gradient(135deg, #25D366, #128C7E) !important; border: none !important; color: #fff !important; border-radius: 50rem !important; padding: 0.6rem 1.2rem !important; }
+.contact-btn-email { background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; border: none !important; color: #fff !important; border-radius: 50rem !important; padding: 0.6rem 1.2rem !important; }
+.contact-btn-ig { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af) !important; border: none !important; color: #fff !important; border-radius: 50rem !important; padding: 0.6rem 1.2rem !important; }
+
+.year-badge-card {
+    background: rgba(124, 140, 255, 0.07);
+    border: 1px solid rgba(124, 140, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.maps-action-btn {
+    background: linear-gradient(135deg, #ea4335, #c5221f) !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 0.5rem;
+}
+
+/* ==========================================================
+   CSS TAMBAHAN KHUSUS HALAMAN HOBI
+   ========================================================== */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.folder-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.folder-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(124, 140, 255, 0.15);
+    border-color: rgba(124, 140, 255, 0.4);
+}
+
+.folder-thumb img {
+    transition: transform 0.5s ease;
+}
+
+.folder-card:hover .folder-thumb img {
+    transform: scale(1.05);
+}
+
+.folder-overlay {
+    background: rgba(10, 14, 39, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.folder-card:hover .folder-overlay {
+    opacity: 1;
+}
+
+.border-accent-glow {
+    border: 1px solid rgba(124, 140, 255, 0.25);
+    box-shadow: 0 0 25px rgba(124, 140, 255, 0.08);
+}
+
+.hobi-view-section {
+    animation: fadeInHobi 0.4s ease forwards;
+}
+
+@keyframes fadeInHobi {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hobi-photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.hobi-photo-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(124, 140, 255, 0.2);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 15px 35px rgba(10, 12, 28, 0.22);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: photoFadeSlide 0.5s ease both;
+}
+
+.hobi-photo-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(124, 140, 255, 0.55);
+    box-shadow: 0 18px 40px rgba(124, 140, 255, 0.15);
+}
+
+@keyframes photoFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hobi-photo-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.hobi-photo-image-wrap {
+    overflow: hidden;
+    background: rgba(15, 19, 38, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    aspect-ratio: 16 / 10;
+}
+
+.hobi-photo-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.3s ease;
+    background: linear-gradient(135deg, rgba(124, 140, 255, 0.2), rgba(168, 85, 247, 0.15));
+}
+
+.hobi-photo-card:hover .hobi-photo-image-wrap img {
+    transform: scale(1.03);
+    filter: saturate(1.05);
+}
+
+.hobi-photo-content {
+    padding: 1.1rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.hobi-photo-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--space-text);
+    line-height: 1.4;
+}
+
+.hobi-photo-text {
+    margin: 0;
+    color: var(--space-text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.hobi-photo-meta {
+    margin-top: 0.9rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 0.9rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.hobi-photo-meta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    width: 100%;
+    min-width: 0;
+    padding-top: 0.45rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hobi-photo-meta-row[data-field="owner"],
+.hobi-photo-meta-row[data-field="location"] {
+    grid-column: 1 / -1;
+}
+
+.hobi-photo-meta-row span:first-child {
+    color: var(--space-text);
+    font-weight: 600;
+    width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+}
+
+.hobi-photo-meta-row strong {
+    color: var(--space-text-secondary);
+    text-align: left;
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.hobi-photo-meta-row[data-field="location"] {
+    grid-column: 1 / -1;
+    background: rgba(124, 140, 255, 0.035);
+    border-radius: 0.75rem;
+    padding: 0.7rem 0.75rem;
+}
+
+.hobi-photo-meta-row[data-field="location"] strong {
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+.hobi-photo-meta-row[data-field="owner"] strong {
+    max-width: 100%;
+}
+
+@media (max-width: 575.98px) {
+    .hobi-photo-meta {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+    }
+
+    .hobi-photo-meta-row[data-field="device"],
+    .hobi-photo-meta-row[data-field="date"],
+    .hobi-photo-meta-row[data-field="owner"],
+    .hobi-photo-meta-row[data-field="location"] {
+        grid-column: 1 / -1;
+    }
+}
+
+.hobi-lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1.5rem;
+}
+
+.hobi-lightbox.is-open {
+    display: flex;
+}
+
+.hobi-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 7, 18, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.hobi-lightbox-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 880px);
+    background: rgba(15, 20, 36, 0.9);
+    border: 1px solid rgba(124, 140, 255, 0.35);
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 70px rgba(7, 10, 22, 0.45);
+    overflow: hidden;
+}
+
+.hobi-lightbox-image {
+    display: block;
+    width: 100%;
+    max-height: 75vh;
+    object-fit: cover;
+    background: rgba(17, 22, 40, 0.8);
+}
+
+.hobi-lightbox-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.25rem 1.25rem;
+    background: rgba(8, 12, 22, 0.9);
+}
+
+.hobi-lightbox-title {
+    font-size: 1.1rem;
+    color: var(--space-text);
+}
+
+.hobi-lightbox-text {
+    color: var(--space-text-secondary);
+    line-height: 1.6;
+}
+
+.hobi-lightbox-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(10, 14, 30, 0.65);
+    color: var(--space-text);
+    border-radius: 999px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.text-accent {
+    color: var(--space-accent) !important;
+}
+
+@media (max-width: 767.98px) {
+    .hobi-photo-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .hobi-photo-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .folder-card {
+        padding: 0.9rem !important;
+    }
+
+    .folder-thumb {
+        height: 170px !important;
+    }
+
+    .btn-space-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hobi-view-section .btn {
+        white-space: normal;
+    }
+
+    .hobi-lightbox {
+        padding: 1rem;
+    }
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

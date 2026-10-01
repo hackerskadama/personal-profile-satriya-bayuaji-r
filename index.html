@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-page-title>Satriya Bayuaji Rahmatullah | Personal Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="space-canvas"></canvas>
+    <div class="nebula-bg"></div>
+    <div class="planet-decor planet-1"></div>
+    <div class="planet-decor planet-2"></div>
+
+    <div id="preloader">
+        <div class="space-loader">
+            <div class="orbit-system">
+                <div class="central-star"></div>
+                <div class="orbiting-planet"></div>
+            </div>
+            <p id="preloader-text" class="mt-4 text-light tracking-widest fw-semibold" data-translate="preloader_text">MENJELAJAHI RUANG ANGKASA...</p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top space-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#" data-page="home">
+                <img src="images/logo.jpeg" alt="Logo" class="rounded-circle logo-img">
+                <span class="fw-bold brand-text">bayuaji.Space</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alihkan navigasi" data-translate-aria-label="nav_toggle">
+                <i class="bi bi-list fs-2 text-info"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center gap-lg-3 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#" data-page="home" data-translate="nav_home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-page="perjalanan" data-translate="nav_journey">Perjalanan Saya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-page="project" data-translate="nav_project">Project Saya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-page="hobi" data-translate="nav_hobi">Hobi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-page="kontak" data-translate="nav_contact">Kontak</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3 ms-lg-4 mt-3 mt-lg-0 pt-3 pt-lg-0 border-top border-secondary border-opacity-25">
+                    <button id="lang-toggle" class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" aria-label="Switch language to English">ID | EN</button>
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;" aria-label="Alihkan ke mode gelap">
+                        <i id="theme-icon" class="bi bi-moon-stars-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="container py-5 mt-5"></main>
+
+    <div class="container">
+        <footer class="mt-5 pt-5 border-top border-secondary border-opacity-25 text-center pb-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h5 class="fw-bold text-light mb-2" data-translate="footer_name">SATRIYA BAYUAJI RAHMATULLAH</h5>
+                    <p class="text-secondary fst-italic small mb-3" data-translate="footer_quote">"proses, proges, sukses."</p>
+                    <p class="text-secondary small tracking-widest text-uppercase mb-1" data-translate="footer_brand">Personal Profile | Bayuaji</p>
+                    <p class="text-secondary opacity-75 small mb-0" data-translate="footer_copyright">© 2026 Satriya Bayuaji Rahmatullah. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <button id="back-to-top" class="btn btn-accent rounded-circle shadow-lg" aria-label="Back to Top" data-translate-aria-label="back_to_top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
